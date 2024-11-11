@@ -10,3 +10,5 @@ sql.execute('CREATE TABLE IF NOT EXISTS users(user_id INTEGER, username TEXT);')
 
 
 connection.commit()
+
+
