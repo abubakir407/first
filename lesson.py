@@ -1,34 +1,12 @@
-class Vehicle:
-    def __init__(self, brand, year):
-        self.brand = brand
-        self.year = year
+import sqlite3
+from sqlite3 import connect
 
 
-    def display_info(self):
-        print(f"Brand:{self.brand}, Year:{self.year}")
+connection = sqlite3.connect('my_users.db')
+
+sql = connection.cursor()
+
+sql.execute('CREATE TABLE IF NOT EXISTS users(user_id INTEGER, username TEXT);')
 
 
-class Car(Vehicle):
-    def __init__(self, brand, year):
-        super().__init__(brand, year)
-
-
-
-class Motorcycle(Vehicle):
-    def __init__(self, brand, year):
-        super().__init__(brand, year)
-
-
-
-car = Car('Toyota', '2024')
-motorcycle = Motorcycle('Bugatti', '2022')
-
-
-car.display_info()
-print()
-motorcycle.display_info()
-
-
-
-
-
+connection.commit()
